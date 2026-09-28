@@ -280,6 +280,21 @@ Novatech Logistics is a fictional company.
 
 All names, infrastructure assets, and network addresses are examples for learning and portfolio demonstration. They do not describe a real production environment.
 `
+## 🚀 Quick Start
+
+Follow these steps to run this project locally and generate the inventory report:
+```bash
+# 1. Clone the repository
+git clone https://github.com/davood-naseri/infra-labs.git
+cd infra-labs
+
+# 2. Set up virtual environment
+python3 -m venv venv
+source venv/bin/activate
+pip install pyyaml
+
+# 3. Render inventory
+python3 scripts/render_inventory.py
 
 
 
