@@ -1,0 +1,116 @@
+company: Novatech Logistics
+version: "1.0"
+environment: Hybrid-Enterprise
+
+devices:
+  # --- HQ: Amsterdam ---
+  - name: hq-fw-01
+    type: Firewall
+    site: HQ-Amsterdam
+    ip: 10.10.0.1
+    os_or_model: FortiGate 100F
+    role: Edge Security, IPsec VPN Hub
+    criticality: High
+    owner: SecOps
+
+  - name: hq-core-sw01
+    type: Switch
+    site: HQ-Amsterdam
+    ip: 10.10.1.1
+    os_or_model: Cisco Catalyst 9300
+    role: L3 Core Routing & VLAN Distribution
+    criticality: High
+    owner: NetOps
+
+  - name: hq-dc-01
+    type: Server
+    site: HQ-Amsterdam
+    ip: 10.10.10.10
+    os_or_model: Windows Server 2022
+    role: Active Directory Domain Controller / DNS
+    criticality: High
+    owner: SysOps
+
+  - name: hq-mon-01
+    type: Server
+    site: HQ-Amsterdam
+    ip: 10.10.10.50
+    os_or_model: Ubuntu 22.04 LTS
+    role: Monitoring (Zabbix & Prometheus)
+    criticality: Medium
+    owner: DevOps
+
+  - name: hq-nas-backup
+    type: Storage
+    site: HQ-Amsterdam
+    ip: 10.10.20.15
+    os_or_model: Synology NAS (DSM 7.2)
+    role: Veeam Central Backup Repository
+    criticality: High
+    owner: SysOps
+
+  # --- Branch: Rotterdam ---
+  - name: rtm-fw-01
+    type: Firewall
+    site: Branch-Rotterdam
+    ip: 10.20.0.1
+    os_or_model: FortiGate 60F
+    role: Edge Firewall & IPsec Spoke to HQ
+    criticality: High
+    owner: SecOps
+
+  - name: rtm-acc-sw01
+    type: Switch
+    site: Branch-Rotterdam
+    ip: 10.20.1.10
+    os_or_model: Cisco CBS350
+    role: Warehouse Floor Access Switch (PoE)
+    criticality: Medium
+    owner: NetOps
+
+  - name: rtm-app-01
+    type: Server
+    site: Branch-Rotterdam
+    ip: 10.20.10.20
+    os_or_model: Ubuntu 22.04 LTS
+    role: Local Warehouse Management System (WMS)
+    criticality: High
+    owner: SysOps
+
+  # --- Cloud: Azure West Europe ---
+  - name: az-vnet-gw
+    type: Gateway
+    site: Azure-WestEurope
+    ip: 10.30.0.1
+    os_or_model: Azure VPN Gateway (VpnGw1)
+    role: Site-to-Site S2S VPN to HQ
+    criticality: High
+    owner: CloudOps
+
+  - name: az-id-sync01
+    type: Server
+    site: Azure-WestEurope
+    ip: 10.30.10.4
+    os_or_model: Windows Server 2022
+    role: Microsoft Entra Connect (Hybrid Identity)
+    criticality: High
+    owner: SysOps
+
+  - name: az-app-prod01
+    type: VM
+    site: Azure-WestEurope
+    ip: 10.30.20.10
+    os_or_model: Ubuntu 22.04 LTS
+    role: Logistics Tracking Web Portal (Docker)
+    criticality: High
+    owner: DevOps
+
+  - name: az-db-prod01
+    type: Database
+    site: Azure-WestEurope
+    ip: 10.30.30.5
+    os_or_model: Azure SQL Managed Instance
+    role: Orders & Inventory Database
+    criticality: High
+    owner: DBA
+
