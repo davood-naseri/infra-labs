@@ -117,7 +117,7 @@ systemctl status systemd-timesyncd --no-pager
 - [x] Identify active network interface and default route
 - [ ] Verify hostname and exact CPU model
 - [ ] Identify swap backing file/device
-- [ ] Resolve and verify previously reported time-synchronization issue
+- [x] Verify time synchronization: systemd-timesyncd active, NTP synchronized, timezone Asia/Tehran, hardware clock in UTC
 - [ ] Verify SSH access and document recovery steps
 - [ ] Configure and test SSH key authentication
 - [ ] Inventory listening ports and running services
