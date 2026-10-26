@@ -144,5 +144,8 @@ Raw `hostnamectl` output may contain machine identifiers that are unnecessary fo
 - SSH listens on TCP port 22 on all IPv4 and IPv6 interfaces.
 - Password-based login with the administrative user was verified.
 - UFW is inactive.
-- SSH key authentication and firewall hardening are pending.
+- SSH public-key authentication was verified.
+- Password and keyboard-interactive authentication are disabled.
+- A password-only SSH login attempt was rejected.
+- Firewall hardening is pending; UFW is inactive.
 - A previous connection reset remains unexplained.
