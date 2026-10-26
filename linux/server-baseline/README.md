@@ -137,3 +137,12 @@ systemctl status systemd-timesyncd --no-pager
 Do not commit Wi-Fi passwords, private SSH keys, VPN subscription links, VMess UUIDs, tokens, or configuration files containing credentials. Review every staged change before committing.
 
 Raw `hostnamectl` output may contain machine identifiers that are unnecessary for public documentation. Sanitize logs and screenshots before publishing.
+
+## SSH verification
+
+- SSH is running with socket activation enabled.
+- SSH listens on TCP port 22 on all IPv4 and IPv6 interfaces.
+- Password-based login with the administrative user was verified.
+- UFW is inactive.
+- SSH key authentication and firewall hardening are pending.
+- A previous connection reset remains unexplained.
